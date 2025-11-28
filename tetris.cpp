@@ -5,6 +5,11 @@
 #include <random>
 #include <string>
 #include <iomanip>
+#ifdef _WIN32 
+#include <windows.h> 
+#include <mmsystem.h> 
+#pragma comment(lib, "winmm.lib") 
+#endif
 
 
 using namespace std;
@@ -433,11 +438,6 @@ void getPlayerName() {
     this_thread::sleep_for(chrono::milliseconds(400));
 }
 
-#ifdef _WIN32
-#include <windows.h>
-#include <mmsystem.h>
-#pragma comment(lib, "winmm.lib")
-#endif
 
 int main() {
     srand(static_cast<unsigned int>(time(0)));
